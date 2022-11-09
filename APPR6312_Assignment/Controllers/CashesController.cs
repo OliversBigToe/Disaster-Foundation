@@ -60,6 +60,15 @@ namespace APPR6312_Assignment.Controllers
 
         public IActionResult AllocateMoney()
         {
+            string id = HttpContext.Request.Query["id"];
+
+            if (String.IsNullOrWhiteSpace(id))
+            {
+                return RedirectToAction("Index", "Disasters");
+            }
+
+            ViewBag.DisasterID = id;
+
             return View();
         }
 

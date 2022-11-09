@@ -69,6 +69,15 @@ namespace APPR6312_Assignment.Controllers
 
         public IActionResult AllocateGoods()
         {
+            string id = HttpContext.Request.Query["id"];
+
+            if (String.IsNullOrWhiteSpace(id))
+            {
+                return RedirectToAction("Index", "Disasters");
+            }
+
+            ViewBag.DisasterID = id;
+
             var outputList = _context.Inventory.Select(x => x.invCategory).Distinct().ToList();
             ViewData["Categories"] = outputList;
             return View();

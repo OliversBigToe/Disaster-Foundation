@@ -41,7 +41,7 @@
                 </datalist>
                 <span asp-validation-for="invCategory" class="text-danger"></span>
             </div>
-            <input name="id" value="@Context.GetRouteData().Values["id"]" hidden />
+            <input name="id" value="@ViewBag.DisasterID" hidden />
                 <br>
 
             <div class="form-group">

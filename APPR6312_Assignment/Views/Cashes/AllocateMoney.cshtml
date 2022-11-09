@@ -27,7 +27,7 @@
 			<label asp-for="transAmount" class="control-label"></label>
 			<input asp-for="transAmount" name="amount" class="form-control" />
 			<span asp-validation-for="transAmount" class="text-danger"></span>
-			<input name="id" value="@Context.GetRouteData().Values["id"]" hidden />
+			<input name="id" value="@ViewBag.DisasterID" hidden />
 			<br>
 			<button type="submit" class="btn btn-outline-success">Allocate</button>
 			<a class="btn btn-outline-warning" asp-controller="Disasters" asp-action="Index">Back to List</a>
