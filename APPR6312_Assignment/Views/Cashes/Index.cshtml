@@ -1,0 +1,42 @@
+﻿@model IEnumerable<APPR6312_Assignment.Models.Cash>
+
+@{
+    ViewData["Title"] = "Index";
+
+    ViewBag.totalDonations = Model.Sum(s => s.moneyAmount);
+}
+
+<h1>Recent Donations</h1>
+
+<h2>Total Donations ZAR @ViewBag.totalDonations</h2>
+
+<p>
+    <button type="button" class="btn btn-outline-secondary"><a asp-action="Create">Make a donation?</a></button>
+</p>
+
+<table class="table table-hover">
+    <thead>
+        <tr class="table-info">
+            <th scope="col">@Html.DisplayNameFor(model => model.moneyDate)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.moneyAmount)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.goodsDonor)</th>
+        </tr>
+    </thead>
+    <tbody>    
+        <tr class="table-warning">
+            @foreach (var item in Model)
+            {
+            <tr class="table-warning">
+                <td>
+                        @Html.DisplayFor(modelItem => item.moneyDate)
+                </td>
+                <td>
+                       ZAR @Html.DisplayFor(modelItem => item.moneyAmount)
+                </td>
+                <td>
+                        @Html.DisplayFor(modelItem => item.goodsDonor)
+                </td>
+            </tr>
+            }
+    </tbody>
+</table>

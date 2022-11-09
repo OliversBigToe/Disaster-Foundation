@@ -1,0 +1,44 @@
+﻿@{
+	ViewData["Title"] = "AdminPanel";
+	var name = Accessor.HttpContext.Session.GetString("name");
+}
+<div>
+	<div class="text-center">
+		<h3 class="display-6">Admin Panel</h3>
+	</div>
+
+	<h4>Manage Users</h4>
+	<div class="d-grid gap-2">
+		<button class="btn btn-lg btn-primary" type="button">
+			<a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="ManageUsers">User Roles</a>
+		</button>
+		<br>
+	</div>
+
+	<h4>Manage Disasters</h4>
+	<div class="d-grid gap-2">
+		<button class="btn btn-lg btn-primary" type="button">
+			<a class="nav-link text-dark" asp-area="" asp-controller="Disasters" asp-action="Index">View Disasters</a>
+		</button>
+		<button class="btn btn-lg btn-primary" type="button">
+			<a class="nav-link text-dark" asp-area="" asp-controller="Inventories" asp-action="Index">View Inventory</a>
+		</button>
+		<button class="btn btn-lg btn-primary" type="button">
+			<a class="nav-link text-dark" asp-area="" asp-controller="Transactions" asp-action="Index">View Transactions</a>
+		</button>
+		<br>
+	</div>
+
+	<h4>View Lists</h4>
+	<div class="d-grid gap-2">
+		<button class="btn btn-lg btn-primary" type="button">
+			<a class="nav-link text-dark" asp-area="" asp-controller="Cashes" asp-action="Index">View All Monetary Donations</a>
+		</button>
+		<button class="btn btn-lg btn-primary" type="button">
+			<a class="nav-link text-dark" asp-area="" asp-controller="Goods" asp-action="Index">View All Donated Goods</a>
+		</button>
+		<br>
+	</div>
+</div>
+<div>
+</div>

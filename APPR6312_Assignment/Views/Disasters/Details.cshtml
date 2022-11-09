@@ -1,0 +1,37 @@
+﻿@model APPR6312_Assignment.Models.Disasters
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Disaster Details</h1>
+
+<div>
+    <h4>Details</h4>
+    <hr />
+
+    <div class="card bg-secondary mb-3" style="max-width: 20rem;">
+        <div class="card-header">Your details</div>
+        <div class="card-body">
+            <h4 class="card-title">@Html.DisplayNameFor(model => model.disasterName)</h4>
+            <p class="card-text">@Html.DisplayFor(model => model.disasterName)</p>
+            <h4 class="card-title">@Html.DisplayNameFor(model => model.disasterStartDate)</h4>
+            <p class="card-text">@Html.DisplayFor(model => model.disasterStartDate)</p>
+            <h4 class="card-title">@Html.DisplayNameFor(model => model.disasterEndDate)</h4>
+            <p class="card-text">@Html.DisplayFor(model => model.disasterEndDate)</p>
+            <h4 class="card-title">@Html.DisplayNameFor(model => model.disasterLocation)</h4>
+            <p class="card-text">@Html.DisplayFor(model => model.disasterLocation)</p>
+            <h4 class="card-title">@Html.DisplayNameFor(model => model.aidType)</h4>
+            <p class="card-text">@Html.DisplayFor(model => model.aidType)</p>
+            <h4 class="card-title">@Html.DisplayNameFor(model => model.disasterDescription)</h4>
+            <p class="card-text">@Html.DisplayFor(model => model.disasterDescription)</p>
+        </div>
+    </div>
+</div>
+
+<div>
+    <br></br>
+    <button type="button" class="btn btn-outline-warning"><a asp-action="Edit" asp-route-id="@Model?.disasterID">Edit</a></button>
+    <button type="button" class="btn btn-outline-warning"><a asp-action="Index">Back to List</a></button>
+
+</div>

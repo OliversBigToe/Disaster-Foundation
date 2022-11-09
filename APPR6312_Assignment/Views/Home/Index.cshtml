@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+    	var name = Accessor.HttpContext.Session.GetString("name");
+        var email = Accessor.HttpContext.Session.GetString("email");
+}
+
+<div class="text-center">
+    <h1 class="display-4">The Disaster Alleviation Foundation</h1>
+    <br>
+</div>
+<div>
+    <div class="d-grid gap-2">
+        <button class="btn btn-lg btn-primary" type="button">			
+            <a class="nav-link text-dark" asp-area="" asp-controller="Cashes" asp-action="Index">Donate Money</a>
+        </button>
+        <button class="btn btn-lg btn-primary" type="button">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Goods" asp-action="Index">Donate Goods</a>
+        </button>
+    </div>
+</div>
+<div>
+</div>

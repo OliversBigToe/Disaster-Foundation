@@ -1,0 +1,50 @@
+﻿@model IEnumerable<APPR6312_Assignment.Models.Good>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Recent Donations</h1>
+
+<p>
+    <button type="button" class="btn btn-outline-secondary"><a asp-action="Create">Make a donation?</a></button>
+</p>
+
+<table class="table table-hover">
+    <thead>
+        <tr class="table-info">
+            <th scope="col">@Html.DisplayNameFor(model => model.goodsDate)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.goodsAmount)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.goodsDescription)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.goodsCategory)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.goodsDonor)</th>
+            <th scope="col">Options</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="table-warning">
+            @foreach (var item in Model)
+            {
+            <tr class="table-warning">
+                <td>
+                        @Html.DisplayFor(modelItem => item.goodsDate)
+                </td>
+                <td>
+                        @Html.DisplayFor(modelItem => item.goodsAmount)
+                </td>
+                <td>
+                        @Html.DisplayFor(modelItem => item.goodsDescription)
+                </td>
+                <td>
+                        @Html.DisplayFor(modelItem => item.goodsCategory)
+                </td>
+                <td>
+                        @Html.DisplayFor(modelItem => item.goodsDonor)
+                </td>
+                <td>
+                    <button type="button" class="btn btn-outline-warning btn-sm"><a asp-action="Details" asp-route-id="@item.goodsID">Details</a></button>
+                </td>
+            </tr>
+            }
+    </tbody>
+</table>

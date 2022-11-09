@@ -1,0 +1,55 @@
+﻿@model APPR6312_Assignment.Models.Inventories
+
+@{
+    ViewData["Title"] = "Create";
+    var name = Accessor.HttpContext.Session.GetString("name");
+    var disaster = Accessor.HttpContext.Session.GetInt32("disaster");
+
+    var categories = (List<string>)ViewData["Categories"];
+
+    	@if (ViewBag.error != null)
+	{
+		<script type="text/javascript">
+			window.onload = function () {
+				alert("@ViewBag.error");
+			};
+		</script>
+	}
+}
+
+<h1>Allocate Goods</h1>
+
+<h4>Please enter the following details</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="AllocateGoods">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="invAmount" class="control-label"></label>
+                <input asp-for="invAmount" name="amount" class="form-control" />
+                <span asp-validation-for="invAmount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="invCategory" class="control-label"></label>
+                <input asp-for="invCategory" name="category" class="form-control" />
+                <datalist id="categories">
+                    @foreach (var item in categories)
+                    {
+                        <option value="@item" ></option>
+                    }
+                </datalist>
+                <span asp-validation-for="invCategory" class="text-danger"></span>
+            </div>
+            <input name="id" value="@Context.GetRouteData().Values["id"]" hidden />
+                <br>
+
+            <div class="form-group">
+                <br>
+                <button type="submit" class="btn btn-outline-success">Allocate</button>
+                <button type="button" class="btn btn-outline-warning"><a asp-controller="Disasters" asp-action="Index">Back to List</a></button>
+            </div>
+        </form>
+    </div>
+</div>
+

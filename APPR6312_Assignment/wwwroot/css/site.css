@@ -1,0 +1,21 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    background-image: url("../Background_APPR.png") !important;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 0 !important;
+}

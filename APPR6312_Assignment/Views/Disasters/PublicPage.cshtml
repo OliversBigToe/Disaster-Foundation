@@ -1,0 +1,97 @@
+﻿@model IEnumerable<APPR6312_Assignment.Models.Disasters>
+
+@{
+    ViewData["Title"] = "PublicPage";
+}
+
+<h1>The Disaster Alleviation Foundation</h1>
+
+<div class="alert alert-dismissible alert-warning">
+  <h4 class="alert-heading">Please note!</h4>
+    <p class="mb-0">If you would like to make a donation, you need to register an account. Would you like to:
+        <button class="btn btn-outline-info btn-sm" type="button">
+            <a class="nav-link text-light" asp-area="" asp-controller="Users" asp-action="Login">Login</a>
+        </button>
+        <button class="btn btn-outline-info btn-sm" type="button">
+            <a class="nav-link text-light" asp-area="" asp-controller="Users" asp-action="Register">Register</a>
+        </button></p>
+</div>
+
+<br>
+
+<h3>Monetray Donations</h3>
+<ul class="list-group">
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        Total monetary donations received
+        <span class="badge bg-info rounded-pill">ZAR @ViewBag.totalMoney</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        Remaining available money
+        <span class="badge bg-info rounded-pill">ZAR @ViewBag.remainingMoney</span>
+    </li>
+</ul>
+
+<br>
+
+<h3>Goods Donations</h3>
+<ul class="list-group">
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        Total number of goods received
+        <span class="badge bg-info rounded-pill">@ViewBag.totalGoods - Items</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        Remaining available goods in inventory
+        <span class="badge bg-info rounded-pill">@ViewBag.remainingGoods - Items</span>
+    </li>
+</ul>
+
+<br>
+
+<h2>
+    Active Disasters</br>
+    <table class="table table-hover">
+        <thead>
+            <tr class="table-info">
+                <th scope="col">@Html.DisplayNameFor(model => model.disasterName)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.disasterStartDate)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.disasterEndDate)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.disasterLocation)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.aidType)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.disasterDescription)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.allocatedMoney)</th>
+                <th scope="col">@Html.DisplayNameFor(model => model.allocatedGoods)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="table-warning">
+                @foreach (var item in Model)
+                {
+                <tr class="table-warning">
+                    <td>
+                            @Html.DisplayFor(modelItem => item.disasterName)
+                    </td>
+                    <td>
+                            @Html.DisplayFor(modelItem => item.disasterStartDate)
+                    </td>
+                    <td>
+                            @Html.DisplayFor(modelItem => item.disasterEndDate)
+                    </td>
+                    <td>
+                            @Html.DisplayFor(modelItem => item.disasterLocation)
+                    </td>
+                    <td>
+                            @Html.DisplayFor(modelItem => item.aidType)
+                    </td>
+                    <td>
+                            @Html.DisplayFor(modelItem => item.disasterDescription)
+                    </td>
+                    <td>
+                        ZAR @Html.DisplayFor(modelItem => item.allocatedMoney)
+                    </td>
+                    <td>
+                            @Html.DisplayFor(modelItem => item.allocatedGoods) - Items
+                    </td>
+                </tr>
+                }
+        </tbody>
+    </table>

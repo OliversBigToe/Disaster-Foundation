@@ -1,0 +1,47 @@
+﻿@model APPR6312_Assignment.Models.Inventories
+
+@{
+	ViewData["Title"] = "Create";
+
+	
+	@if (ViewBag.error != null)
+	{
+		<script type="text/javascript">
+			window.onload = function () {
+				alert("@ViewBag.error");
+			};
+		</script>
+	}
+}
+
+<h1>Purchase Goods</h1>
+
+<h4>Please enter the following details</h4>
+<hr />
+<div class="row">
+	<div class="col-md-4">
+		<form asp-action="Create">
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<div class="form-group">
+				<label asp-for="invAmount" class="control-label"></label>
+				<input asp-for="invAmount" class="form-control" />
+				<span asp-validation-for="invAmount" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="invCategory" class="control-label"></label>
+				<input asp-for="invCategory" class="form-control" />
+				<span asp-validation-for="invCategory" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label class="control-label">Value</label>
+				<input name="transAmount" class="form-control" />
+			</div>
+			<div class="form-group">
+				<br>
+				<input type="submit" value="Create" class="btn btn-outline-success" />
+				<button type="button" class="btn btn-outline-warning"><a asp-action="Index">Back to List</a></button>
+			</div>
+		</form>
+	</div>
+</div>
+

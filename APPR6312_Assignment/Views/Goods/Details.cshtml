@@ -1,0 +1,33 @@
+﻿@model APPR6312_Assignment.Models.Good
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Good</h4>
+    <hr />
+
+    <div class="card bg-secondary mb-3" style="max-width: 20rem;">
+        <div class="card-header">Your details</div>
+        <div class="card-body">
+            <h4 class="card-title">@Html.DisplayNameFor(model => model.goodsDate)</h4>
+            <p class="card-text">@Html.DisplayFor(model => model.goodsDate)</p>
+            <h4 class="card-title">@Html.DisplayNameFor(model => model.goodsAmount)</h4>
+            <p class="card-text">@Html.DisplayFor(model => model.goodsAmount)</p>
+            <h4 class="card-title">@Html.DisplayNameFor(model => model.goodsDescription)</h4>
+            <p class="card-text">@Html.DisplayFor(model => model.goodsDescription)</p>
+            <h4 class="card-title">@Html.DisplayNameFor(model => model.goodsCategory)</h4>
+            <p class="card-text">@Html.DisplayFor(model => model.goodsCategory)</p>
+            <h4 class="card-title">@Html.DisplayNameFor(model => model.goodsDonor)</h4>
+            <p class="card-text">@Html.DisplayFor(model => model.goodsDonor)</p>
+        </div>
+    </div>
+</div>
+<div>
+    <br></br>
+    <button type="button" class="btn btn-outline-warning"><a asp-action="Edit" asp-route-id="@Model?.goodsID">Edit</a></button>
+    <button type="button" class="btn btn-outline-warning">    <a asp-action="Index">Back to List</a></button>
+</div>

@@ -1,0 +1,38 @@
+﻿@model IEnumerable<APPR6312_Assignment.Models.Transaction>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Transactions</h1>
+
+<p>
+    <button type="button" class="btn btn-outline-warning"><a asp-controller="Home" asp-action="AdminPanel">Back</a></button>
+</p>
+
+<table class="table table-hover">
+    <thead>
+        <tr class="table-info">
+            <th scope="col">@Html.DisplayNameFor(model => model.transDate)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.transAmount)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.transType)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="table-warning">
+            @foreach (var item in Model)
+            {
+            <tr class="table-warning">
+                <td>
+                        @Html.DisplayFor(modelItem => item.transDate)
+                </td>
+                <td>
+                       ZAR @Html.DisplayFor(modelItem => item.transAmount)
+                </td>
+                <td>
+                        @Html.DisplayFor(modelItem => item.transType)
+                </td>
+            </tr>
+            }
+    </tbody>
+</table>

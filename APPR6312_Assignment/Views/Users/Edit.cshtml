@@ -1,0 +1,44 @@
+﻿@model APPR6312_Assignment.Models.User
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Edit your account details</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="userEmail" />
+            <div class="form-group">
+                <label asp-for="userName" class="control-label"></label>
+                <input asp-for="userName" class="form-control" />
+                <span asp-validation-for="userName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="userSurname" class="control-label"></label>
+                <input asp-for="userSurname" class="form-control" />
+                <span asp-validation-for="userSurname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="userEmail" class="control-label"></label>
+                <input asp-for="userEmail" class="form-control" />
+                <span asp-validation-for="userEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="userPassword" class="control-label"></label>
+                <input asp-for="userPassword" class="form-control" value="" />
+                <span asp-validation-for="userPassword" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <br></br>
+                <input type="submit" value="Save" class="btn btn-outline-success"/>
+                <button type="button" class="btn btn-outline-warning"><a asp-action="Index">Back to List</a></button> 
+            </div>
+        </form>
+    </div>
+</div>
+

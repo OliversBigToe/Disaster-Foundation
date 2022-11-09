@@ -1,0 +1,39 @@
+﻿@model IEnumerable<APPR6312_Assignment.Models.User>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Account Details</h1>
+
+<table class="table table-hover">
+    <thead>
+        <tr class="table-info">
+            <th scope="col">@Html.DisplayNameFor(model => model.userName)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.userSurname)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.userEmail)</th>
+            <th scope="col">Options</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="table-warning">
+            @foreach (var item in Model)
+            {
+            <tr class="table-warning">
+                <td>
+                        @Html.DisplayFor(modelItem => item.userName)
+                </td>
+                <td>
+                        @Html.DisplayFor(modelItem => item.userSurname)
+                </td>
+                <td>
+                        @Html.DisplayFor(modelItem => item.userEmail)
+                </td>
+                <td>
+                    <button type="button" class="btn btn-outline-warning btn-sm"><a asp-action="Edit" asp-route-id="@item.userEmail">Edit</a></button>
+                    <button type="button" class="btn btn-outline-warning btn-sm"><a asp-action="Details" asp-route-id="@item.userEmail">Details</a></button>
+                </td>
+            </tr>
+            }
+    </tbody>
+</table>

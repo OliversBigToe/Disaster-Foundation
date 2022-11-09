@@ -1,0 +1,37 @@
+﻿@model APPR6312_Assignment.Models.Transaction
+
+@{
+	ViewData["Title"] = "Create";
+	var name = Accessor.HttpContext.Session.GetString("name");
+	var disaster = Accessor.HttpContext.Session.GetInt32("disaster");
+
+	@if (ViewBag.error != null)
+	{
+		<script type="text/javascript">
+			window.onload = function () {
+				alert("@ViewBag.error");
+			};
+		</script>
+	}
+}
+
+<h1>Allocate Money</h1>
+
+<h4>Please enter the following details</h4>
+<hr />
+<div class="row">
+	<div class="col-md-4">
+		
+		<form asp-action="AllocateMoney">
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<label asp-for="transAmount" class="control-label"></label>
+			<input asp-for="transAmount" name="amount" class="form-control" />
+			<span asp-validation-for="transAmount" class="text-danger"></span>
+			<input name="id" value="@Context.GetRouteData().Values["id"]" hidden />
+			<br>
+			<button type="submit" class="btn btn-outline-success">Allocate</button>
+			<a class="btn btn-outline-warning" asp-controller="Disasters" asp-action="Index">Back to List</a>
+		</form>
+	</div>
+</div>
+

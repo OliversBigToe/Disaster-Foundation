@@ -1,0 +1,67 @@
+﻿@model APPR6312_Assignment.Models.Disasters
+
+@{
+    ViewData["Title"] = "Edit";
+
+        var aids = (List<string>)ViewData["Aids"];
+
+}
+
+<h1>Edit</h1>
+
+<h4>Disasters</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="disasterID" />
+            <div class="form-group">
+                <label asp-for="disasterName" class="control-label"></label>
+                <input asp-for="disasterName" class="form-control" />
+                <span asp-validation-for="disasterName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="disasterStartDate" class="control-label"></label>
+                <input asp-for="disasterStartDate" class="form-control" />
+                <span asp-validation-for="disasterStartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="disasterEndDate" class="control-label"></label>
+                <input asp-for="disasterEndDate" class="form-control" />
+                <span asp-validation-for="disasterEndDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="disasterLocation" class="control-label"></label>
+                <input asp-for="disasterLocation" class="form-control" />
+                <span asp-validation-for="disasterLocation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="aidType" class="control-label"></label>
+                <input asp-for="aidType" class="form-control" />
+                <span asp-validation-for="aidType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="disasterDescription" class="control-label"></label>
+                <input asp-for="disasterDescription" class="form-control" />
+                <span asp-validation-for="disasterDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="allocatedMoney" class="control-label" hidden></label>
+                <input asp-for="allocatedMoney" class="form-control" hidden/>
+                <span asp-validation-for="allocatedMoney" class="text-danger" hidden></span>
+            </div>
+            <div class="form-group">
+                <br>
+                <input type="submit" value="Save" class="btn btn-outline-success" />
+                <button type="button" class="btn btn-outline-warning"><a asp-action="Index">Back to List</a></button>
+
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    
+</div>
+

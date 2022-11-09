@@ -1,0 +1,85 @@
+﻿@model APPR6312_Assignment.Models.Good
+
+@{
+    ViewData["Title"] = "Create";
+    var name = Accessor.HttpContext.Session.GetString("name");
+
+    var categories = (List<string>)ViewData["Categories"];
+}
+
+<h1>New Donation</h1>
+
+<h4>Please enter the following details</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="goodsAmount" class="control-label"></label>
+                <input asp-for="goodsAmount" class="form-control" />
+                <span asp-validation-for="goodsAmount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="goodsCategory" class="control-label"></label>
+                <input asp-for="goodsCategory" class="form-control" list="categories" />
+                <datalist id="categories">
+                    @foreach (var item in categories)
+                    {
+                        <option value="@item" ></option>
+                    }
+                </datalist>
+                <span asp-validation-for="goodsCategory" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="goodsDescription" class="control-label"></label>
+                <input asp-for="goodsDescription" class="form-control" />
+                <span asp-validation-for="goodsDescription" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <fieldset>
+                    <label asp-for="goodsDonor" class="control-label"></label>
+                    <input id="donor" asp-for="goodsDonor" readonly="" class="form-control" value="@name" />
+                    <span asp-validation-for="goodsDonor" class="text-danger"></span>
+                </fieldset>
+
+                <br>
+
+                <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                    <input value="@name" type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked="">
+                    <label class="btn btn-outline-info" for="btnradio1">@name</label>
+                    <input value="Anonymous" type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" checked="">
+                    <label class="btn btn-outline-info" for="btnradio2">Anonymous</label>
+                </div>
+
+                <script>
+                    document.getElementById('btnradio1').onclick = function () {
+                        var radios = document.getElementsByName('btnradio');
+                        for (var radio of radios) {
+                            if (radio.checked) {
+                                document.getElementById("donor").value = radio.value;
+                            }
+                        }
+                    }
+                    document.getElementById('btnradio2').onclick = function () {
+                        var radios = document.getElementsByName('btnradio');
+                        for (var radio of radios) {
+                            if (radio.checked) {
+                                document.getElementById("donor").value = radio.value;
+                            }
+                        }
+                    }
+                </script>
+
+            </div>
+
+            <div class="form-group">
+                <br>
+                <input type="submit" value="Create" class="btn btn-outline-success" />
+                <button type="button" class="btn btn-outline-warning"><a asp-action="Index">Back to List</a></button>
+            </div>
+        </form>
+    </div>
+</div>
+

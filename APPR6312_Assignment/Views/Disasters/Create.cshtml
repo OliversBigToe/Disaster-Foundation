@@ -1,0 +1,64 @@
+﻿@model APPR6312_Assignment.Models.Disasters
+
+@{
+    ViewData["Title"] = "Create";
+    var name = Accessor.HttpContext.Session.GetString("name");
+
+    var aids = (List<string>)ViewData["Aids"];
+
+}
+
+<h1>Add Disaster</h1>
+
+<h4>Please enter the following details</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="disasterName" class="control-label"></label>
+                <input asp-for="disasterName" class="form-control" />
+                <span asp-validation-for="disasterName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="disasterStartDate" class="control-label"></label>
+                <input asp-for="disasterStartDate" class="form-control" />
+                <span asp-validation-for="disasterStartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="disasterEndDate" class="control-label"></label>
+                <input asp-for="disasterEndDate" class="form-control" />
+                <span asp-validation-for="disasterEndDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="disasterLocation" class="control-label"></label>
+                <input asp-for="disasterLocation" class="form-control" />
+                <span asp-validation-for="disasterLocation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="aidType" class="control-label"></label>
+                <input asp-for="aidType" class="form-control" list="aids" />
+                <datalist id="aids">
+                    @foreach (var item in aids)
+                    {
+                        <option value="@item"></option>
+                    }
+                </datalist>
+                <span asp-validation-for="aidType" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="disasterDescription" class="control-label"></label>
+                <input asp-for="disasterDescription" class="form-control" />
+                <span asp-validation-for="disasterDescription" class="text-danger"></span>
+                <input asp-for="goodsCategory" value="Nothing" hidden/>
+            </div>
+            <div class="form-group">
+                <br>
+                <button type="submit" value="Create" class="btn btn-outline-success" >Create</button>
+                <button type="button" class="btn btn-outline-warning"><a asp-action="Index">Back to List</a></button>
+            </div>
+        </form>
+    </div>
+</div>
+

@@ -1,0 +1,94 @@
+﻿@model IEnumerable<APPR6312_Assignment.Models.Disasters>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>All Disasters</h1>
+
+<ul class="list-group">
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        Total Money Donated
+        <span class="badge bg-info rounded-pill">ZAR @ViewBag.totalMoney</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        Remaining Money
+        <span class="badge bg-info rounded-pill">ZAR @ViewBag.remainingMoney</span>
+    </li>
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+        Total Allocations to Disasters
+        <span class="badge bg-info rounded-pill">ZAR @ViewBag.totalAllocations</span>
+    </li>
+</ul>
+
+<br>
+
+<p>
+    <button type="button" class="btn btn-outline-secondary"><a asp-action="Create">Add Disaster?</a></button>
+    <button class="btn btn-outline-warning" type="button">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="AdminPanel">Back</a>
+    </button>
+</p>
+
+<table class="table table-hover">
+    <thead>
+        <tr class="table-info">
+            <th scope="col">@Html.DisplayNameFor(model => model.disasterName)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.disasterStartDate)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.disasterEndDate)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.disasterLocation)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.aidType)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.disasterDescription)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.allocatedMoney)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.allocatedGoods)</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Details</th>
+            <th scope="col">Monetary</th>
+            <th scope="col">Goods</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="table-warning">
+            @foreach (var item in Model)
+            {
+            <tr class="table-warning">
+                <td>
+                        @Html.DisplayFor(modelItem => item.disasterName)
+                </td>
+                <td>
+                        @Html.DisplayFor(modelItem => item.disasterStartDate)
+                </td>
+                <td>
+                        @Html.DisplayFor(modelItem => item.disasterEndDate)
+                </td>
+                <td>
+                        @Html.DisplayFor(modelItem => item.disasterLocation)
+                </td>
+                <td>
+                        @Html.DisplayFor(modelItem => item.aidType)
+                </td>
+                <td>
+                        @Html.DisplayFor(modelItem => item.disasterDescription)
+                </td>
+                <td>
+                        ZAR @Html.DisplayFor(modelItem => item.allocatedMoney)
+                </td>
+                <td>
+                         @Html.DisplayFor(modelItem => item.allocatedGoods)
+                </td>
+                <td>
+                     <button type="button" class="btn btn-outline-warning btn-sm"><a asp-action="Edit" asp-route-id="@item.disasterID">Edit</a></button>
+                </td>
+                <td>
+                <button type="button" class="btn btn-outline-warning btn-sm"><a asp-action="Details" asp-route-id="@item.disasterID">Details</a></button>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-outline-warning btn-sm"><a asp-area="" asp-controller="Cashes" asp-action="AllocateMoney" asp-route-id="@item.disasterID">Allocate</a></button>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-outline-warning btn-sm"><a asp-area="" asp-controller="Goods" asp-action="AllocateGoods" asp-route-id="@item.disasterID">Allocate</a></button>
+                </td>
+            </tr>
+            }
+    </tbody>
+</table>

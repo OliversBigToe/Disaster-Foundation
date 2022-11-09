@@ -1,0 +1,31 @@
+﻿@model APPR6312_Assignment.Models.User
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Account Information</h1>
+
+<div>
+    <h4>Your Details</h4>
+    <hr />
+
+    <div class="card bg-secondary mb-3" style="max-width: 20rem;">
+        <div class="card-header">Your details</div>
+        <div class="card-body">
+            <h4 class="card-title">@Html.DisplayNameFor(model => model.userName)</h4>
+            <p class="card-text">@Html.DisplayFor(model => model.userName)</p>
+            <h4 class="card-title">@Html.DisplayNameFor(model => model.userSurname)</h4>
+            <p class="card-text">@Html.DisplayFor(model => model.userSurname)</p>
+            <h4 class="card-title">@Html.DisplayNameFor(model => model.userEmail)</h4>
+            <p class="card-text">@Html.DisplayFor(model => model.userEmail)</p>
+        </div>
+    </div>
+</div>
+
+<div>
+    <br></br>
+    <button type="button" class="btn btn-outline-warning"><a asp-action="Edit" asp-route-id="@Model?.userEmail">Edit</a></button>
+    <button type="button" class="btn btn-outline-warning"><a asp-action="Index">Back to List</a></button>
+    
+</div>
