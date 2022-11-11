@@ -1,8 +1,10 @@
+using APPR6312_Assignment.Controllers;
 using APPR6312_Assignment.Models;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
-namespace MSUnitTesting
+namespace MSUnitTesting.Controllers
 {
     [TestClass]
     public class MSUnitTest1
@@ -23,7 +25,31 @@ namespace MSUnitTesting
                 .Options;
         }
 
+        //Test method for my Users table
+        #region Testing input data for the Users table
+        [TestMethod]
+        public void Users()
+        {
+            using (var context = new AppDbContext(AppContext))
+            {
+                context.Database.EnsureCreated();
+                var users = new User()
+                {
+                    userEmail = "reecew@gmail.com",
+                    userPassword = "fd75c7f5cd42026d2e4a6e6b49e8eb88",
+                    userName = "Reece",
+                    userSurname = "Wanvig",
+                    userRole = "Admin"
+                };
+
+                context.Users.AddRange(users);
+                context.SaveChanges();
+            }
+        }
+        #endregion
+
         //Test method for my Disasters table
+        #region Testing input data for the Disasters table
         [TestMethod]
         public void Disaster()
         {
@@ -47,29 +73,10 @@ namespace MSUnitTesting
                 context.SaveChanges();
             }
         }
-
-        //Test method for my Users table
-        [TestMethod]
-        public void Users()
-        {
-            using (var context = new AppDbContext(AppContext))
-            {
-                context.Database.EnsureCreated();
-                var users = new User()
-                {
-                    userEmail = "tomh@gmail.com",
-                    userPassword = "fd75c7f5cd42026d2e4a6e6b49e8eb88",
-                    userName = "Tom",
-                    userSurname = "Hanks",
-                    userRole = "Admin"
-                };
-
-                context.Users.AddRange(users);
-                context.SaveChanges();
-            }
-        }
+        #endregion
 
         //Test method for my Goods table
+        #region Testing input data for the Goods table
         [TestMethod]
         public void Goods()
         {
@@ -89,8 +96,10 @@ namespace MSUnitTesting
                 context.SaveChanges();
             }
         }
+        #endregion
 
         //Test method for my Money table
+        #region Testing input data for the Money table
         [TestMethod]
         public void Money()
         {
@@ -108,8 +117,10 @@ namespace MSUnitTesting
                 context.SaveChanges();
             }
         }
+        #endregion
 
         //Test method for my Transactions table
+        #region Testing input data for the Transactions table
         [TestMethod]
         public void Transactions()
         {
@@ -127,8 +138,10 @@ namespace MSUnitTesting
                 context.SaveChanges();
             }
         }
+        #endregion
 
         //Test method for my Inventory table
+        #region Testing input data for the Inventory table
         [TestMethod]
         public void Inventory()
         {
@@ -146,5 +159,6 @@ namespace MSUnitTesting
                 context.SaveChanges();
             }
         }
+        #endregion
     }
 }
