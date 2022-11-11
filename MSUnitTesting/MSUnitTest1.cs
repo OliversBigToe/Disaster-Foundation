@@ -57,10 +57,10 @@ namespace MSUnitTesting
                 context.Database.EnsureCreated();
                 var users = new User()
                 {
-                    userEmail = "stephanm@gmail.com",
+                    userEmail = "tomh@gmail.com",
                     userPassword = "fd75c7f5cd42026d2e4a6e6b49e8eb88",
-                    userName = "Stephan",
-                    userSurname = "Marely",
+                    userName = "Tom",
+                    userSurname = "Hanks",
                     userRole = "Admin"
                 };
 
@@ -105,6 +105,44 @@ namespace MSUnitTesting
                 };
 
                 context.Money.AddRange(cash);
+                context.SaveChanges();
+            }
+        }
+
+        //Test method for my Transactions table
+        [TestMethod]
+        public void Transactions()
+        {
+            using (var context = new AppDbContext(AppContext))
+            {
+                context.Database.EnsureCreated();
+                var trans = new Transaction()
+                {
+                    transDate = new DateTime(2022, 09, 11),
+                    transAmount = 500,
+                    transType = "Tools"
+                };
+
+                context.Transactions.AddRange(trans);
+                context.SaveChanges();
+            }
+        }
+
+        //Test method for my Inventory table
+        [TestMethod]
+        public void Inventory()
+        {
+            using (var context = new AppDbContext(AppContext))
+            {
+                context.Database.EnsureCreated();
+                var inv = new Inventories()
+                {
+                    invDate = new DateTime(2022, 09, 11),
+                    invAmount = 3,
+                    invCategory = "Clothes"
+                };
+
+                context.Inventory.AddRange(inv);
                 context.SaveChanges();
             }
         }
