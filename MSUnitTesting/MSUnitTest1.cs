@@ -137,8 +137,8 @@ namespace MSUnitTesting
                 context.Database.EnsureCreated();
                 var inv = new Inventories()
                 {
-                    invDate = new DateTime(2022, 09, 11),
-                    invAmount = 3,
+                    invDate = new DateTime(2022, 09, 12),
+                    invAmount = 2,
                     invCategory = "Clothes"
                 };
 
