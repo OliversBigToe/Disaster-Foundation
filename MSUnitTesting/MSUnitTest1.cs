@@ -57,9 +57,9 @@ namespace MSUnitTesting
                 context.Database.EnsureCreated();
                 var users = new User()
                 {
-                    userEmail = "bobm@gmail.com",
+                    userEmail = "stephanm@gmail.com",
                     userPassword = "fd75c7f5cd42026d2e4a6e6b49e8eb88",
-                    userName = "Bob",
+                    userName = "Stephan",
                     userSurname = "Marely",
                     userRole = "Admin"
                 };
