@@ -57,14 +57,54 @@ namespace MSUnitTesting
                 context.Database.EnsureCreated();
                 var users = new User()
                 {
-                    userEmail = "stevenk@gmail.com",
+                    userEmail = "bobm@gmail.com",
                     userPassword = "fd75c7f5cd42026d2e4a6e6b49e8eb88",
-                    userName = "Steven",
-                    userSurname = "King",
+                    userName = "Bob",
+                    userSurname = "Marely",
                     userRole = "Admin"
                 };
 
                 context.Users.AddRange(users);
+                context.SaveChanges();
+            }
+        }
+
+        //Test method for my Goods table
+        [TestMethod]
+        public void Goods()
+        {
+            using (var context = new AppDbContext(AppContext))
+            {
+                context.Database.EnsureCreated();
+                var goods = new Good()
+                {
+                    goodsDate = new DateTime(2022, 09, 11),
+                    goodsAmount = 66,
+                    goodsDescription = "These are goods that need to be tested",
+                    goodsCategory = "Beans",
+                    goodsDonor = "Oliver"
+                };
+
+                context.Goods.AddRange(goods);
+                context.SaveChanges();
+            }
+        }
+
+        //Test method for my Money table
+        [TestMethod]
+        public void Money()
+        {
+            using (var context = new AppDbContext(AppContext))
+            {
+                context.Database.EnsureCreated();
+                var cash = new Cash()
+                {
+                    moneyDate = new DateTime(2022, 09, 11),
+                    moneyAmount = 400,
+                    goodsDonor = "Oliver"
+                };
+
+                context.Money.AddRange(cash);
                 context.SaveChanges();
             }
         }
